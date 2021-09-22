@@ -1,5 +1,26 @@
 import React from "react";
-import './App.css';
+import "@ionic/react/css/core.css";
+import { IonButton } from "@ionic/react";
+
+// /* Core CSS required for Ionic components to work properly */
+// import '@ionic/react/css/core.css'
+
+// /* Basic CSS for apps built with Ionic */
+// import '@ionic/react/css/normalize.css'
+// import '@ionic/react/css/structure.css'
+// import '@ionic/react/css/typography.css'
+
+// /* Optional CSS utils that can be commented out */
+// import '@ionic/react/css/padding.css'
+// import '@ionic/react/css/float-elements.css'
+// import '@ionic/react/css/text-alignment.css'
+// import '@ionic/react/css/text-transformation.css'
+// import '@ionic/react/css/flex-utils.css'
+// import '@ionic/react/css/display.css'
+
+// /* Theme variables */
+// import 'theme/variables.css'
+// import 'theme/styles.css'
 
 function App() {
   const [time, setTime] = React.useState(0)
@@ -44,20 +65,20 @@ function App() {
         <span>{("0" + ((time / 10) % 100)).slice(-2)}</span>
       </div>
       <div>
-        {!timerOn && time === 0 && <button onClick={() => setTimeOn(true)}>Start</button>}
+        {!timerOn && time === 0 && <IonButton onClick={() => setTimeOn(true)}>Start</IonButton>}
         {timerOn && (
           <>
-            <button onClick={() => setTimeOn(false)}>Stop</button>
-            <button onClick={() => recordLap()}>Lap</button>
+            <IonButton onClick={() => setTimeOn(false)}>Stop</IonButton>
+            <IonButton onClick={() => recordLap()}>Lap</IonButton>
           </>
         )}
         {!timerOn && time !== 0 && (
-          <button onClick={() => setTimeOn(true)}>Resume</button>
+          <IonButton onClick={() => setTimeOn(true)}>Resume</IonButton>
         )}
         {!timerOn && time > 0 && (
           <>
-            <button onClick={() => (setTime(0), setLaps([]))}>Reset</button>
-            <button onClick={() => recordLap()}>Lap</button>
+            <IonButton onClick={() => (setTime(0), setLaps([]))}>Reset</IonButton>
+            <IonButton onClick={() => recordLap()}>Lap</IonButton>
           </>
         )}
         <ul className="lapList">
@@ -76,4 +97,6 @@ function App() {
   );
 }
 
+
 export default App;
+
