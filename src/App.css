@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+.numbers {
+  margin-bottom: 10px;
+}
+
+.lapList {
+  list-style: none;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -13,6 +21,7 @@
   }
 }
 body {
+  font-family: 'Times New Roman', Times, serif;
   background: linear-gradient(rgb(238, 164, 4), rgb(145, 32, 155));
   height: 100vh
 }
