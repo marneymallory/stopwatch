@@ -7,11 +7,11 @@ import "./core.css";
 function App() {
   const [time, setTime] = React.useState(0)
   const [timerOn, setTimeOn] = React.useState(false)
-  const [laps, setLaps] = React.useState([])
+  const [laps, setLaps] = React.useState([]) //
 
   const recordLap = () => {
     const previousLapsTotal = laps.reduce(
-      (addedLap, currentValue) => addedLap + currentValue, 0
+      (lastAddedLap, currentValue) => lastAddedLap + currentValue, 0
     )
     const currentLap = time - previousLapsTotal;
     const newLaps = [...laps, currentLap]
@@ -31,6 +31,7 @@ function App() {
     return () => clearInterval(interval)
     
   }, [timerOn])
+
   let lapCounter = 1;
   const lapDisplay = () => {
     let string = lapCounter + ".";
@@ -67,7 +68,8 @@ function App() {
           {laps.map((lap) => {
             return (
               <li>
-                {lapDisplay()} {("0" + Math.floor((lap / 60000) % 60)).slice(-2)}:
+                {lapDisplay()}
+                {("0" + Math.floor((lap / 60000) % 60)).slice(-2)}:
                 {("0" + Math.floor((lap / 1000) % 60)).slice(-2)}:
                 {("0" + ((lap / 10) % 100)).slice(-2)}
               </li>
